@@ -3,6 +3,7 @@ package orlandoHealthSignUpPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -22,14 +23,15 @@ public class OrlandoSignUpPageTest {
 
     @BeforeMethod
     public void beforeMethod() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        System.setProperty("webdriver.edge.driver", "src/main/resources/msedgedriver.exe");
 
-        driver = new ChromeDriver();
+        driver = new EdgeDriver();
 
         driver.manage().window().maximize();
       //  driver.get("https://www.orlandohealth.com/");
         driver.get(ConfigurationReader.getProperty("orlandoHealth.properties","orlandoHealth.url"));
         orlandoSignUpPage=new OrlandoSignUpPage(driver);
+
         orlandoHealthLoginPage=new OrlandoHealthLoginPage(driver);
         orlandoHealthLoginPage.myChartButton.click();
     }
@@ -47,12 +49,16 @@ public void userShouldSeeSubMenu()  {
        String subMenuItem= submenu.get(a).getText();
         System.out.println(subMenuItem);
 
+
     }
 
 
 
          }
-
+    @Test(groups = {"smoke"})
+    public void dfjk(){
+        System.out.println("this is test2");
+    }
 
 
 

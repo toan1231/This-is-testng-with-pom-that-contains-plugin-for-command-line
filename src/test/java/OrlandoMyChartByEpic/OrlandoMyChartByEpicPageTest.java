@@ -26,8 +26,8 @@ public class OrlandoMyChartByEpicPageTest {
     @BeforeMethod
     public void beforeMethod() throws InterruptedException {
 
-            System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-            driver=new ChromeDriver();
+            System.setProperty("webdriver.edge.driver", "src/main/resources/msedgedriver.exe");
+            driver=new EdgeDriver();
             driver.manage().window().maximize();
 
         driver.get(ConfigurationReader.getProperty("orlandoHealth.properties","orlandoHealth.url"));
@@ -46,7 +46,7 @@ public class OrlandoMyChartByEpicPageTest {
         myChartPage.appointmentButton.click();
 
     }
-    @Test(groups = "smoke")
+    @Test
     public void userCanSeeBackWord() throws InterruptedException {
         myChartPage.appointmentButton.click();
         String parent=driver.getWindowHandle();
@@ -62,8 +62,12 @@ public class OrlandoMyChartByEpicPageTest {
         Assert.assertEquals(driver.findElement(By.cssSelector(".summary-back")).getText(),"Back");
         System.out.println(driver.findElement(By.cssSelector(".summary-back")).getText());
     }
-    @Test(groups = "regression")
+    @Test
     public void testingWithNumber(){
         System.out.println("hellow world I am living in Florida");
+    }
+    @Test(groups = {"smoke"})
+    public void dfjk(){
+        System.out.println("this is test 3");
     }
 }

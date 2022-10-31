@@ -5,12 +5,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utilities.ConfigurationReader;
 
+import java.sql.Driver;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -27,13 +31,14 @@ public class OrlandoHealthLoginPageTest {
 
 
 
-@BeforeMethod
+@BeforeMethod(groups = "regression")
     public void launchTheWebSite() {
 
 
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        System.setProperty("webdriver.edge.driver", "src/main/resources/msedgedriver.exe");
 
-        driver = new ChromeDriver();
+       // driver = new ChromeDriver();
+        driver=new EdgeDriver();
 
         driver.manage().window().maximize();
 
@@ -48,14 +53,16 @@ public class OrlandoHealthLoginPageTest {
     @AfterMethod
     public void kjfd(){
         driver.quit();
+
     }
-    @Test
+    @Test(groups = "regression")
     public void user_click_on_Mychart() throws InterruptedException {
+
 driver.get("https://www.orlandohealth.com/");
         driver.findElement(By.xpath("//*[@title='MyChart']")).click();
 
 }
-@Test(groups = {"regression","smoke"})
+@Test(groups = {"regression"})
 public void user_click_on_appointment(){
     driver.get("https://www.orlandohealth.com/");
 
@@ -65,7 +72,7 @@ public void user_click_on_appointment(){
 
 
 }
-@Test(groups = {"smoke"})
+@Test(groups = "regression")
 public void user_click_on_cardiology() throws InterruptedException {
     driver.get("https://www.orlandohealth.com/");
     driver.findElement(By.xpath("//*[@title='MyChart']")).click();
@@ -88,7 +95,7 @@ public void user_click_on_cardiology() throws InterruptedException {
 
     }
 
-    @Test
+    @Test(groups = "regression")
     public void userCanSeeSignUpNow() throws InterruptedException {
 
         driver.get("https://www.orlandohealth.com/");
@@ -103,6 +110,10 @@ List<WebElement>subMenu=driver.findElements(By.xpath( "//*[@class='content-secti
        System.out.println(element.getText());
    }
 
+    }
+    @Test(groups = "smoke")
+    public void dfjk(){
+        System.out.println("this is test1");
     }
 
 }
