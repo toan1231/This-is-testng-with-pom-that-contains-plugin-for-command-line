@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="testNGSept11(failed)">
+    <classes>
+      <class name="scrollingUpscrollingDown.OrlandoHealthScrolling">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="SrollingUpAndDown"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- scrollingUpscrollingDown.OrlandoHealthScrolling -->
+    </classes>
+  </test> <!-- testNGSept11(failed) -->
+</suite> <!-- Failed suite [Default Suite] -->
